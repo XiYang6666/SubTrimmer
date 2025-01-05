@@ -18,7 +18,8 @@ readme = "README.md"
 license = {text = "MIT"}
 
 [tool.pdm.scripts]
-start = "uvicorn src.subtrimmer:app --reload"
+start = "uvicorn src.subtrimmer:app"
+dev = "uvicorn src.subtrimmer:app --reload"
 
 [tool.pdm]
 distribution = false
