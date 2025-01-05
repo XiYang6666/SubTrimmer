@@ -1,0 +1,11 @@
+{
+    "python.analysis.typeCheckingMode": "standard",
+    "cSpell.words": [
+        "aread",
+        "geodb",
+        "indentless",
+        "mmdb",
+        "typeshed",
+        "userinfo"
+    ]
+}

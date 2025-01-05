@@ -1,0 +1,24 @@
+[project]
+name = "SubTrimmer"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [
+    {name = "XiYang6666", email = "1782356858@qq.com"},
+]
+dependencies = [
+    "fastapi>=0.115.6",
+    "uvicorn>=0.34.0",
+    "geoip2>=4.8.1",
+    "pyyaml>=6.0.2",
+    "httpx>=0.28.1",
+    "dnspython>=2.7.0",
+]
+requires-python = "==3.11.*"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm.scripts]
+start = "uvicorn src.subtrimmer:app --reload"
+
+[tool.pdm]
+distribution = false
