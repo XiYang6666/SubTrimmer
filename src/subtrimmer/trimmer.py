@@ -123,6 +123,9 @@ def trim_yaml(content: str, name_format: Optional[str]) -> str:
         proxy_groups.append(proxy_group)
     proxy_groups.append(proxy_group_auto)
     proxy_groups.append(proxy_group_fallback)
+    # 为代理组添加其他分组
+    for proxy_group in proxy_groups[1:]:
+        proxy_groups[0]["proxies"].insert(0, proxy_group["name"])
     # 处理 rules
     new_rules = []
     for rule in config.get("rules", []):
