@@ -36,9 +36,12 @@ def lookup_ip(ip_address: str) -> Optional[str]:
 def lookup_domain(domain: str) -> Optional[str]:
     # 解析域名
     ip_addresses: list[str] = []
-    for item in dns.resolver.query(domain, "A").response.answer[-1].items:
-        ip_addresses.append(str(item))
-    if not ip_addresses:
+    try:
+        for item in dns.resolver.query(domain, "A").response.answer[-1].items:
+            ip_addresses.append(str(item))
+        if not ip_addresses:
+            return None
+    except dns.resolver.NoAnswer:
         return None
     # 查询 IP
     ip_address = ip_addresses[0]
