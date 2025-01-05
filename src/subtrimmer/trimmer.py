@@ -64,12 +64,11 @@ def trim_yaml(content: str, name_format: Optional[str]) -> str:
         proxy_info = {
             "type": proxy.get("type").lower(),
             "ip_iso_code": ip_iso_code,
-            "ip_region_en": ip_region_data and ip_region_data["en"],
-            "ip_region_zh": ip_region_data and ip_region_data["zh"],
-            "ip_region_tw": ip_region_data and ip_region_data["tw"],
-            "ip_region_emoji": ip_region_data and ip_region_data["emoji"],
+            "ip_region_en": ip_region_data and ip_region_data["en"] or "UNKNOWN",
+            "ip_region_zh": ip_region_data and ip_region_data["zh"] or "UNKNOWN",
+            "ip_region_tw": ip_region_data and ip_region_data["tw"] or "UNKNOWN",
+            "ip_region_emoji": ip_region_data and ip_region_data["emoji"] or "🤔",
         }
-        proxy_info = {k: v for k, v in proxy_info.items() if v is not None}
         safe_proxy_info = DefaultDict()
         safe_proxy_info.update(proxy_info)
         new_name = (
